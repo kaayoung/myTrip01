@@ -83,7 +83,7 @@ section {
 }
 .navbar__menu__item:hover {
     background-color: var(--color-dark-blue);
-    transition: all 600ms linear;
+    transition: all 300ms linear;
 }
 
 
@@ -172,8 +172,9 @@ section {
 }
 
 .plan__container {
+    max-width: 80%;
     display: flex;
-    margin: 3rem 9rem;
+    margin: 3rem auto;
     justify-content: space-between;
     background-color: var(--color-dark-grey);
 }
@@ -233,4 +234,86 @@ section {
 }
 .etc__item {
     margin-bottom: 0.3rem;
+}
+
+
+/* Pictures */
+#picture {
+    padding: 2rem 0;
+}
+#picture h2 {
+    margin: 3rem 0;
+}
+
+.pic__categories {
+    padding: 1rem 0;
+}
+.cate__btn {
+    background-color: var(--color-dark-white);
+    padding: 1rem 2rem;
+    width: 8.8rem;
+    border-radius: var(--border-radius);
+}
+.pic__categories .active {
+    background-color: var(--color-blue);
+}
+.cate__count {
+    display: inline-block;
+    background-color: var(--color-yellow);
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    line-height: 1.1rem;
+
+    position: relative;
+    top: -1.6rem;
+    left: 0.5rem;
+    opacity: 0%;
+}
+
+.cate__btn.active .cate__count , .cate__btn:hover .cate__count {
+    /* btn에서 active 상태일때의 count와 , btn이 hover될 때의 count 가... */
+    opacity: 1;
+    top: 0;
+    transition: all 250ms ease;
+}
+
+.pic__images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 2rem;
+    margin : 2rem auto ;
+}
+.pic__img {
+    width: 14rem;
+    height: 14rem;
+    background-color: var(--color-white);
+    margin: 0.3rem ;
+    position: relative;
+}
+.pic__img img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.pic__img:hover .pic__description {
+    opacity: 0.7;
+    transition: all 250ms ease;
+}
+
+.pic__description {
+    background-color: var(--color-black);
+    opacity: 0;
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pic__description h3 {
+    color : var(--color-light-white);
+    line-height: 14rem;
 }
