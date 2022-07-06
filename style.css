@@ -96,10 +96,16 @@ section {
 }
 
 .home__avatar {
+    position: relative;
     width: 15rem ;
     height: 15rem;
     border-radius: 50%;
     border: 2px solid var(--color-white);
+}
+
+.home__avatar:hover {
+    transform: scale(1.2);
+    transition: all 350ms ease;
 }
 
 .home__title, .home__description {
@@ -299,12 +305,14 @@ section {
 
 .pic__img:hover .pic__description {
     opacity: 0.7;
+    transform: translateY(0);
     transition: all 250ms ease;
 }
 
 .pic__description {
     background-color: var(--color-black);
     opacity: 0;
+    transform: translateY(0.7rem);
 
     width: 100%;
     height: 100%;
@@ -316,4 +324,66 @@ section {
 .pic__description h3 {
     color : var(--color-light-white);
     line-height: 14rem;
+}
+
+
+/* Review */
+#review {
+    background-color: var(--color-dark-white);
+    max-width: 100%;
+    padding: 3rem 0 ;
+    margin: 1rem auto;
+}
+#review h2 {
+    margin: 3rem 0;
+}
+.review__container {
+    margin: 0 4rem;
+}
+.review__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+.review__personImg {
+    width: 9.8rem;
+    height: 9.8rem;
+    border-radius: 50%;
+}
+.review__text {
+    background-color: var(--color-light-white);
+    border-radius: var(--border-radius);
+    width: 70rem;
+    height: 10rem;
+}
+.review__text p {
+    padding-top: 2.5rem;
+}
+.review__person {
+    color: var(--color-dark-blue);
+}
+
+
+/* Contact */
+#contact {
+    background-color: var(--color-dark-blue);
+    padding: 3rem 0;
+    max-width: 100%;
+    color: var(--color-white);
+}
+.contact__email {
+    margin: 3rem 0;
+}
+.contact__title, .contact__email {
+    color: var(--color-white);
+}
+.contact__icons i {
+    font-size: var(--font-large);
+    margin: 0 2rem;
+}
+
+.contact__icons i:hover {
+    transform: scale(1.5) rotate(20deg);
+    transition: all 250ms ease;
 }
