@@ -51,16 +51,20 @@ section {
 /* Nav Bar */
 
 #navbar {
-    background-color: var(--color-blue);
+    background-color: transparent;
     display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 1.3rem ;
-    box-shadow: 0 2px 2px var(--color-dark-white);
+    justify-content: space-evenly;
+    padding: 1.5rem 2.3rem ;
 
-    position : sticky ;
-    top: 0;
-    left: 0;
+    position : fixed ;
+    width: 100%;
     z-index: 10000;
+    margin-right: 0;
+}
+
+#navbar.navbar--color {
+    background-color: var(--color-blue);
+    transition: all 250ms ease-in-out ;
 }
 
 .navbar__logo {
@@ -86,13 +90,24 @@ section {
     transition: all 300ms linear;
 }
 
+.navbar__toggle-btn {
+    display: none;
+    color: var(--color-white);
+    font-size: 1.5rem;
+
+    position: absolute;
+    top: 1.6rem;
+    right: 1.5rem;
+}
+
 
 /* Home */
 #home {
     background: url("/img/bg-bluepurple.jpeg") center/cover no-repeat;
     text-align: center;
-    padding: 3rem 0;
+    padding: 5rem 0;
     max-width: 100%;
+    height: 100%;
 }
 
 .home__avatar {
@@ -386,4 +401,47 @@ section {
 .contact__icons i:hover {
     transform: scale(1.5) rotate(20deg);
     transition: all 250ms ease;
+}
+
+
+/* 반응형 */
+
+@media screen and (max-width : 768px) {
+    
+    /* NavBar Toggle BTN 반응형 */
+    .navbar__toggle-btn {
+        display: block;
+    }
+    #navbar {
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar__menu {
+        display: none;
+        
+        flex-direction: column;
+        margin: 2rem auto;
+        width: 100%;
+    }
+    .navbar__menu__item, .navbar__menu__item.active {
+        border: 0 solid transparent;
+    }
+    .navbar__menu__item:hover {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /* Where 반응형 */
+    .where__places {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .place {
+        margin: 1.5rem auto;
+    }
+
+    /* Plan 반응형 */
+    
 }
