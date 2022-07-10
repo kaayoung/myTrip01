@@ -59,7 +59,7 @@ section {
     background-color: transparent;
     display: flex;
     justify-content: space-evenly;
-    padding: 1.5rem 2.3rem ;
+    padding: 1.3rem 2.3rem ;
 
     position : fixed ;
     width: 100%;
@@ -442,23 +442,31 @@ section {
     /* NavBar Toggle BTN 반응형 */
     .navbar__toggle-btn {
         display: block;
+        position: absolute;
+        top: 1.2rem;
+        right: 7rem;
     }
     #navbar {
         display: flex;
         flex-direction: column;
+        background-color: var(--color-blue);
     }
     .navbar__menu {
         display: none;
-        
+        text-align: center;
         flex-direction: column;
         margin: 2rem auto;
+    }
+    .navbar__menu.open {
+        display: block;
+        background-color: var(--color-blue);
         width: 100%;
     }
     .navbar__menu__item, .navbar__menu__item.active {
         border: 0 solid transparent;
     }
     .navbar__menu__item:hover {
-        width: 100%;
+        
         text-align: center;
     }
 

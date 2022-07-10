@@ -32,6 +32,19 @@ function moveToPage(e) {
 navbarMenu.addEventListener("click" , moveToPage);
 homeContact.addEventListener("click", moveToPage);
 
+// 반응형 - 햄버거바 클릭하면 메뉴 아래로 펼치기 
+const toggleBtn = document.querySelector(".navbar__toggle-btn");
+
+toggleBtn.addEventListener("click", () => {
+    navbarMenu.classList.toggle("open");
+})
+
+
+// 반응형 - 스크롤하면 메뉴창 닫히게 
+window.addEventListener("scroll" , () => {
+    navbarMenu.classList.remove("open");
+})
+
 
 // 스크롤하면 점점 Home 섹션이 투명하게 
 const home = document.querySelector("#home");
