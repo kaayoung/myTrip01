@@ -48,6 +48,11 @@ section {
 }
 
 
+.hide {
+    display: none;
+}
+
+
 /* Nav Bar */
 
 #navbar {
@@ -64,6 +69,7 @@ section {
 
 #navbar.navbar--color {
     background-color: var(--color-blue);
+    opacity: 0.9;
     transition: all 250ms ease-in-out ;
 }
 
@@ -82,9 +88,7 @@ section {
     cursor: pointer;
     border-radius: var(--border-radius) ;
 }
-.navbar__menu__item.active {
-    border: 1.5px solid var(--color-white);
-}
+
 .navbar__menu__item:hover {
     background-color: var(--color-dark-blue);
     transition: all 300ms linear;
@@ -109,6 +113,7 @@ section {
     max-width: 100%;
     height: 100%;
 }
+
 
 .home__avatar {
     position: relative;
@@ -312,7 +317,15 @@ section {
     background-color: var(--color-white);
     margin: 0.3rem ;
     position: relative;
+    opacity: 1;
 }
+
+.pic-animation {
+    opacity: 0;
+    transform: scale(0.97) translateY(2rem);
+    transition: all 250ms ease-out;
+}
+
 .pic__img img {
     max-width: 100%;
     max-height: 100%;
@@ -401,6 +414,24 @@ section {
 .contact__icons i:hover {
     transform: scale(1.5) rotate(20deg);
     transition: all 250ms ease;
+}
+
+
+/* Up Arrow */
+#up-arrow {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--color-white);
+    box-shadow: 2px 2px 10px var(--color-dark-white);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 3rem;
+
+    position: fixed;
+    right: 3rem;
+    bottom: 3rem;
+
+    cursor: pointer;
 }
 
 

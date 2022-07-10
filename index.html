@@ -40,10 +40,12 @@
 
     <!-- Home -->
     <section id="home">
-        <img src="/img/img1.jpeg" alt="my image in Europe" class="home__avatar">
-        <h1 class="home__title">Hello,<br> I am Kayoung Lee</h1>
-        <h2 class="home__description">I want to go to Europe again !</h2>
-        <button data-link="#contact" class="home__contact">CONTACT ME</button>
+        <div class="home__content">
+            <img src="/img/img1.jpeg" alt="my image in Europe" class="home__avatar">
+            <h1 class="home__title">Hello,<br> I am Kayoung Lee</h1>
+            <h2 class="home__description">I want to go to Europe again !</h2>
+            <button data-link="#contact" class="home__contact">CONTACT ME</button>
+        </div>
     </section>
 
     <!-- Where I have traveled -->
@@ -140,56 +142,56 @@
         <h1>Pictures</h1>
         <h2>Pictures in Europe</h2>
         <div class="pic__categories">
-            <button class="cate__btn active">All <span class="cate__count">8</span></button>
-            <button class="cate__btn">France <span class="cate__count">4</span></button>
-            <button class="cate__btn">Belgium <span class="cate__count">1</span></button>
-            <button class="cate__btn">Germany <span class="cate__count">3</span></button>
+            <button data-filter="*" class="cate__btn active">All <span class="cate__count">8</span></button>
+            <button data-filter="France" class="cate__btn">France <span class="cate__count">4</span></button>
+            <button data-filter="Belgium" class="cate__btn">Belgium <span class="cate__count">1</span></button>
+            <button data-filter="Germany" class="cate__btn">Germany <span class="cate__count">3</span></button>
         </div>
 
         <div class="pic__images">
-            <div class="pic__img">
+            <div class="pic__img" data-type="France">
                 <img src="/img/f-1.jpeg" alt="">
                 <div class="pic__description">
                     <h3>France</h3>
                 </div>
             </div>
-            <div class="pic__img">
+            <div class="pic__img" data-type="France">
                 <img src="/img/f-2.jpeg" alt="">
                 <div class="pic__description">
                     <h3>France</h3>
                 </div>
             </div>
-            <div class="pic__img">
+            <div class="pic__img" data-type="France">
                 <img src="/img/f-3.jpeg" alt="">
                 <div class="pic__description">
                     <h3>France</h3>
                 </div>
             </div>
-            <div class="pic__img">
+            <div class="pic__img" data-type="France">
                 <img src="/img/f-4.jpeg" alt="">
                 <div class="pic__description">
                     <h3>France</h3>
                 </div>
             </div>
-            <div class="pic__img">
+            <div class="pic__img" data-type="Belgium">
                 <img src="/img/b-1.jpeg" alt="">
                 <div class="pic__description">
                     <h3>Belgium</h3>
                 </div>
             </div>
-            <div class="pic__img">
+            <div class="pic__img"  data-type="Germany">
                 <img src="/img/g-1.jpeg" alt="">
                 <div class="pic__description">
                     <h3>Germany</h3>
                 </div>
             </div>
-            <div class="pic__img">
+            <div class="pic__img" data-type="Germany">
                 <img src="/img/g-2.jpeg" alt="">
                 <div class="pic__description">
                     <h3>Germany</h3>
                 </div>
             </div>
-            <div class="pic__img">
+            <div class="pic__img" data-type="Germany">
                 <img src="/img/g-3.jpeg" alt="">
                 <div class="pic__description">
                     <h3>Germany</h3>
@@ -229,6 +231,11 @@
             <i class="fa-solid fa-plane-arrival"></i>
         </div>
     </section>
+
+    <!-- Up Arrow -->
+    <div id="up-arrow" class="hide">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
 
     <script src="/index.js"></script>
 </body>
