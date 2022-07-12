@@ -13,7 +13,7 @@ document.addEventListener("scroll" , () => {
     }
 })
 
-// 스크롤 시 해당 페이지로 넘어가기 - 네비게이션 바 & Contact버튼
+// 클릭 시 해당 페이지로 넘어가기 - 네비게이션 바 & Contact버튼
 const navbarMenu = document.querySelector(".navbar__menu");
 const homeContact = document.querySelector("#home .home__contact");
 
@@ -23,10 +23,8 @@ function moveToPage(e) {
 
     if (!link) {
         return;
-    } else {
-        const scrollTo = document.querySelector(link);
-        scrollTo.scrollIntoView({behavior:"smooth"});
-    }
+    } 
+    scrollIntoView(link);
 }
 
 navbarMenu.addEventListener("click" , moveToPage);
@@ -71,8 +69,9 @@ document.addEventListener("scroll" , () => {
     }
 });
 
-upArrow.addEventListener("click" , () => {
-    window.scrollTo({top : 0, behavior : "smooth"});
+upArrow.addEventListener("click" , (e) => {
+    //window.scrollTo({top : 0, behavior : "smooth"});
+    scrollIntoView(sectionIDs[0]);
 });
 
 
@@ -134,3 +133,70 @@ function navMenuActive(e) {
 
 navbarMenu.addEventListener("click" , navMenuActive) ;
 */
+
+
+
+
+// 스크롤시 해당 섹션의 메뉴 활성화 
+// 1. 모든 섹션 요소들과 메뉴 아이템들을 가져온다 
+// 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다
+// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다 
+
+const sectionIDs = [
+    '#home',
+    '#where',
+    '#plan',
+    '#picture',
+    '#review',
+    '#contact'
+]
+
+const sections = sectionIDs.map((id) => document.querySelector(id));
+const navbarItems = sectionIDs.map((id) => document.querySelector(`[data-link="${id}"]`));
+
+let selectedNavbar = navbarItems[0]; // 처음 사이트 접속할 때는 home이 되도록
+let focusedNum = 0 ;
+
+function scrollIntoView(selector) { // 특정 위치에 스크롤하고 네비게이션에도 표시
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({behavior:"smooth"});
+    selectNavbar(navbarItems[sectionIDs.indexOf(selector)]);
+}
+
+function selectNavbar(selected) { // 해당 위치에 네비게이션 바 경계선 표시
+    selectedNavbar.classList.remove("active");
+    selectedNavbar = selected ;
+    selectedNavbar.classList.add("active") ;
+}
+
+function observeCallback(entries, observer) {
+    entries.forEach(entry => {
+       if(!entry.isIntersecting && entry.intersectionRatio >0 ) {
+        const num = sectionIDs.indexOf(`#${entry.target.id}`);
+
+        if(entry.boundingClientRect.y<0) { // 스크롤 아래로 내릴때
+            focusedNum = num+1; 
+        } else { // 스크롤 위로 올릴때
+            focusedNum = num-1; 
+        }
+       }
+    });
+}
+
+window.addEventListener("wheel" , () => { // 처음과 끝 에는 home/contact 로
+    if(window.scrollY + window.innerHeight === document.body.clientHeight) {
+        selectNavbar(navbarItems[navbarItems.length-1]);
+    } else if (window.screenY===0) {
+        focusedNum = 0
+    } else {
+        selectNavbar(navbarItems[focusedNum]);
+    }
+    
+})
+
+const observeOption = {
+    threshold : 0.3
+}
+
+const observer = new IntersectionObserver(observeCallback,observeOption) ;
+sections.forEach(section => observer.observe(section)) ;
