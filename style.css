@@ -68,6 +68,8 @@ section {
     padding: 1.3rem 2.3rem ;
 
     position : fixed ;
+    right: 0;
+    left: 0;
     width: 95%;
     z-index: 10000;
     margin-right: 0;
@@ -448,6 +450,7 @@ section {
 /* 반응형 */
 
 @media screen and (max-width : 768px) {
+
     
     /* NavBar Toggle BTN 반응형 */
     .navbar__toggle-btn {
@@ -460,20 +463,26 @@ section {
         display: flex;
         flex-direction: column;
         background-color: var(--color-blue);
-        width: 95%;
+        max-width: 100%;
+        
     }
     .navbar__menu {
         display: none;
         text-align: center;
         flex-direction: column;
         margin: 2rem auto;
-        width: 100%;
+        max-width: 100%;
     }
     .navbar__menu.open {
-        display: block;
+        display: inline-block;
         background-color: var(--color-blue);
-        width: 100%;
+        max-width: 100%;
     }
+
+    .navbar__menu.open .navbar__menu__item.active {
+        border: 1px solid var(--color-white);
+    }
+
     .navbar__menu__item, .navbar__menu__item.active {
         border: 0 solid transparent;
     }
@@ -495,8 +504,18 @@ section {
 
     /* Pictures 반응형 */
     .pic__categories {
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        width: 20rem;
+        margin: auto;
     }
+    .cate__btn {
+        margin: 0.5rem;
+    }
+    .pic__img {
+        width: 100%;
+    }
+    
 
     /* Review 반응형  */
     .review__text p {
@@ -505,6 +524,12 @@ section {
     .review__personImg {
         width: 8.7rem;
         height: 8.7rem;
+    }
+
+    /* Plan 반응형 */
+    .plan__container {
+        display: flex;
+        flex-direction: column;
     }
     
 }
